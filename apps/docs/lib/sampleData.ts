@@ -738,3 +738,10 @@ export function getDatasets(id: CountryId): DatasetEntry[] {
     },
   ];
 }
+
+/** Real census population per region as `{ state, value }` records (value in people). */
+export function censusRecords(id: CountryId): Array<{ state: string; value: number }> {
+  return Object.entries(POPULATION[id]).map(([state, millions]) => ({ state, value: Math.round(millions * 1e6) }));
+}
+
+export const censusLabel = (id: CountryId) => CENSUS_LABEL[id];
