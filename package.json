@@ -1,0 +1,21 @@
+{
+  "name": "hexamap-tiles-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w hexamap-tiles",
+    "dev": "npm run build -w hexamap-tiles && concurrently -n lib,docs \"npm run dev -w hexamap-tiles\" \"npm run dev -w docs\"",
+    "test": "npm run test -w hexamap-tiles",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=22.12"
+  }
+}

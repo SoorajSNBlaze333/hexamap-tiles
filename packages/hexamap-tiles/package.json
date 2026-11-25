@@ -1,0 +1,80 @@
+{
+  "name": "hexamap-tiles",
+  "version": "0.1.0",
+  "description": "Hexagonal tile maps of the USA, India, China and Australia for React — built for analytics data.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./3d": {
+      "types": "./dist/three.d.ts",
+      "default": "./dist/three.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "react",
+    "map",
+    "hexagon",
+    "hexbin",
+    "usa",
+    "choropleth",
+    "analytics",
+    "dataviz"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "build:geo": "node scripts/build-geo.mjs"
+  },
+  "peerDependencies": {
+    "@react-three/fiber": ">=9",
+    "framer-motion": ">=11",
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19",
+    "three": ">=0.160"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.2"
+  },
+  "devDependencies": {
+    "@react-three/fiber": "^9.8.2",
+    "@types/d3-geo": "^3.1.1",
+    "@types/geojson": "^7946.0.16",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@types/three": "^0.187.0",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
+    "framer-motion": "^14.14.0",
+    "polygon-clipping": "^0.15.7",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.187.0",
+    "topojson-client": "^3.1.0",
+    "topojson-server": "^3.0.1",
+    "tsup": "^8.5.1",
+    "us-atlas": "^3.0.1",
+    "vitest": "^5.1.1"
+  },
+  "peerDependenciesMeta": {
+    "three": {
+      "optional": true
+    },
+    "@react-three/fiber": {
+      "optional": true
+    }
+  }
+}
