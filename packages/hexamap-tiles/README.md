@@ -2,6 +2,8 @@
 
 Hexagonal tile maps of the USA, India, China and Australia for React — built for analytics data.
 
+[GitHub](https://github.com/SoorajSNBlaze333/hexamap-tiles) · [Issues](https://github.com/SoorajSNBlaze333/hexamap-tiles/issues) · MIT license
+
 ```bash
 npm i hexamap-tiles framer-motion
 ```
