@@ -15,11 +15,15 @@ only when you start it by hand, and it:
    the Actions tab once the file is on the default branch).
 2. **Create an npm account** at <https://www.npmjs.com/signup> and turn on two-factor authentication.
 3. **Publish the first version.** npm's trusted publishing can only be configured for a package that already
-   exists, so the very first release needs a token:
-   - npmjs.com → your avatar → **Access Tokens** → **Generate New Token** → **Granular Access Token**.
-     Give it *Read and write* on packages and a short expiry (7 days is plenty).
-   - GitHub repo → **Settings → Secrets and variables → Actions → New repository secret**, named `NPM_TOKEN`.
-   - Actions tab → **Publish to npm** → **Run workflow** with *bump* = `none` (publishes 1.0.0 as-is).
+   exists, so the very first release is done one of these two ways:
+   - **From your machine (simplest):** `npm login`, then
+     `npm run build -w hexamap-tiles && npm publish -w hexamap-tiles --access public`.
+     npm asks for your 2FA code.
+   - **From the workflow with a token:** npmjs.com → your avatar → **Access Tokens** → **Generate New Token** →
+     **Granular Access Token**, with *Read and write* on all packages, a short expiry, and **"Bypass
+     two-factor authentication (2FA)" ticked**. Without that box, publishing fails with `EOTP` (CI can't
+     enter a one-time code). Save it as the repository secret `NPM_TOKEN`, then run **Publish to npm** with
+     *bump* = `none` (publishes 1.0.0 as-is).
 4. **Switch to trusted publishing** (no long-lived tokens):
    - npmjs.com → package **hexamap-tiles** → **Settings** → **Trusted Publisher** → **GitHub Actions**.
    - Organization or user: `SoorajSNBlaze333`, repository: `hexamap-tiles`, workflow filename: `publish.yml`.
